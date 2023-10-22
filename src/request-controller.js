@@ -27,10 +27,10 @@ const setData = async (req, res) => {
             "token": process.env.TOKEN
         }})
         console.log("Set Data METHOD");
-        console.log("Request data", req.body);
+        // console.log("Request data", req.body);
         // console.log("Request endpoint", req.params.endpoint);
-        console.log("response", response.data.response);
-        res.send( response.data.response)
+        console.log("response", response);
+        res.send(response)
     } catch (error) {
         res.send("poster post error", error.data)
     }

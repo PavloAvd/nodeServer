@@ -29,7 +29,7 @@ module.exports = class Application {
     _createServer() {
         return http.createServer((req, res) => {
             let body = "";
-            res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Разрешить доступ со всех доменов
+            res.setHeader('Access-Control-Allow-Origin', '*'); // Разрешить доступ со всех доменов
             res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE'); // Разрешенные HTTP-методы
             res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Разрешенные заголовки
 
