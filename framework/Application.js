@@ -62,6 +62,7 @@
 // Application.js
 const https = require('https');
 const fs = require('fs');
+const EventEmitter = require('events');
 
 const options = {
   key: fs.readFileSync('/etc/letsencrypt/live/83-229-85-22.cloud-xip.com/privkey.pem'),
@@ -70,6 +71,7 @@ const options = {
 
 class Application {
     constructor() {
+        this.emitter = new EventEmitter();
         this.server = this._createServer();
         this.middlewares = [];
     }
