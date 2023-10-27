@@ -49,7 +49,7 @@ app.addRouter(requestRouter);
 const start = async () => {
     try {
         // const server = https.createServer(options, app._createServer());
-        server.listen(PORT, () => console.log(`SERVER WORKING ON PORT: ${PORT}`));
+        app.listen(PORT, () => console.log(`SERVER WORKING ON PORT: ${PORT}`));
     } catch (error) {
         console.log("server error", error);
     }
