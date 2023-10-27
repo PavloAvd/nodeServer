@@ -24,7 +24,7 @@
 
 
 //=========================new HTTPS
-
+/// INDEX JS
 require('dotenv').config();
 const fs = require('fs');
 const https = require('https');
@@ -35,10 +35,10 @@ const parseUrl = require('./framework/parseUrl');
 
 const PORT = process.env.PORT || 5000;
 
-const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/83-229-85-22.cloud-xip.com/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/83-229-85-22.cloud-xip.com/fullchain.pem')
-};
+// const options = {
+//   key: fs.readFileSync('/etc/letsencrypt/live/83-229-85-22.cloud-xip.com/privkey.pem'),
+//   cert: fs.readFileSync('/etc/letsencrypt/live/83-229-85-22.cloud-xip.com/fullchain.pem')
+// };
 
 const app = new Application();
 
@@ -48,7 +48,7 @@ app.addRouter(requestRouter);
 
 const start = async () => {
     try {
-        const server = https.createServer(options, app._createServer());
+        // const server = https.createServer(options, app._createServer());
         server.listen(PORT, () => console.log(`SERVER WORKING ON PORT: ${PORT}`));
     } catch (error) {
         console.log("server error", error);
