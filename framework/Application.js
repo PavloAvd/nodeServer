@@ -59,12 +59,13 @@
 
 //======================NEW HTPPS 
 
+// Application.js
 const https = require('https');
 const fs = require('fs');
 
 const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/83-229-85-22.cloud-xip.com/privkey.pem'),       // Укажите путь к вашему SSL-ключу
-  cert: fs.readFileSync('/etc/letsencrypt/live/83-229-85-22.cloud-xip.com/fullchain.pem') // Укажите путь к вашему SSL-сертификату
+  key: fs.readFileSync('/etc/letsencrypt/live/83-229-85-22.cloud-xip.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/83-229-85-22.cloud-xip.com/fullchain.pem')
 };
 
 class Application {
@@ -88,7 +89,6 @@ class Application {
                     handler(req, res);
                 });
             });
-
         });
     }
     _createServer() {
@@ -120,10 +120,4 @@ class Application {
     }
 }
 
-const app = new Application();
-
-// Добавьте ваши маршруты и обработчики запросов здесь, используя методы класса Application
-
-app.listen(443, () => {
-    console.log('Сервер запущен на порту 443 (HTTPS)');
-});
+module.exports = Application;
