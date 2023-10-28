@@ -44,10 +44,11 @@ app.use(parseUrl('https://83.229.85.22:5000'))
 
 const start = async () => {
     try {
-        app.listen(PORT, () => console.log(`SERVER WORKING ON PORT: ${PORT}`));
+        app.listen(PORT, () => app._createServer());
     } catch (error) {
         console.log("server error", error);
     }
 };
 
 start();
+// console.log(`SERVER WORKING ON PORT: ${PORT}`)
