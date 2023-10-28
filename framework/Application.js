@@ -77,6 +77,7 @@ class Application {
     }
     use(middleware) {
         this.middlewares.push(middleware);
+        console.log("used middleware", middleware);
     }
     listen(port, callback) {
         this.server.listen(port, callback);
@@ -92,6 +93,7 @@ class Application {
                 });
             });
         });
+        console.log("ROuter added");
     }
     _createServer() {
         return https.createServer(options, (req, res) => {
@@ -103,7 +105,7 @@ class Application {
             req.on('data', (chunk) => {
                 body += chunk;
             });
-
+            console.log("_createServer");
             req.on('end', () => {
                 if (body) {
                     req.body = JSON.parse(body);
