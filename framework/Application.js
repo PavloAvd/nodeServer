@@ -104,7 +104,7 @@ class Application {
 
             req.on('data', (chunk) => {
                 body += chunk;
-                console.log("req.on('data', (chunk)", chunk);
+                console.log("req.on('data', (chunk)");
             });
             
             req.on('end', () => {
@@ -114,7 +114,7 @@ class Application {
                 }
                 this.middlewares.forEach(middleware => {
                     middleware(req, res)
-                    console.log(" middleware req res", req, res);
+                    console.log(" middleware req res");
                 });
                 const emmitted = this.emitter.emit(this._getRouteMask(req.url, req.method), req, res);
                 if (!emmitted) {
