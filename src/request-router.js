@@ -1,5 +1,5 @@
 const Router = require("../framework/Router")
-const controller = require("../src/request-controller")
+const controller = require("./request-controller")
 
 const router = new Router()
 router.get('/api/request', controller.getData )
