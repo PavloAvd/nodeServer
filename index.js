@@ -38,7 +38,8 @@ const app = new Application();
 
 app.use(jsonParser);
 app.addRouter(requestRouter);
-app.use(parseUrl('https://83-229-85-22.cloud-xip.com:5000'));
+// app.use(parseUrl('https://83-229-85-22.cloud-xip.com:5000'));
+app.use(parseUrl('https://83.229.85.22:5000'))
 
 
 const start = async () => {

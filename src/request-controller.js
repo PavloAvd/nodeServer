@@ -14,7 +14,7 @@ const getData = async (req, res) => {
         })
         console.log("Get Data METHOD");
         console.log(url);
-        // console.log(response.data);
+        console.log(response.data);
         res.send(response.data);
     } catch (error) {
         res.send(error)
