@@ -117,7 +117,7 @@ class Application {
                     console.log(" middleware req res");
                 });
                 console.log("this midelware", this.middlewares);
-                const emmitted = this.emitter.emit(this._getRouteMask(req.url, req.method), req, res);
+                const emmitted = this.emitter.emit(this._getRouteMask(req.pathname, req.method), req, res);
                 if (!emmitted) {
                     res.end();
                 }
