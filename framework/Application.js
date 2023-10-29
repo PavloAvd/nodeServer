@@ -77,7 +77,6 @@ class Application {
     }
     use(middleware) {
         this.middlewares.push(middleware);
-        console.log("used middleware", middleware);
     }
     listen(port, callback) {
         this.server.listen(port, callback);
@@ -88,12 +87,10 @@ class Application {
             Object.keys(endpoint).forEach((method) => {
                 this.emitter.on(this._getRouteMask(path, method), (req, res) => {
                     const handler = endpoint[method];
-
                     handler(req, res);
                 });
             });
         });
-        console.log("ROuter added");
     }
     _createServer() {
         return https.createServer(options, (req, res) => {
@@ -104,19 +101,15 @@ class Application {
 
             req.on('data', (chunk) => {
                 body += chunk;
-                console.log("req.on('data', (chunk)");
             });
             
             req.on('end', () => {
                 if (body) {
                     req.body = JSON.parse(body);
-                    console.log(" req.on('end',", JSON.parse(body));
                 }
                 this.middlewares.forEach(middleware => {
                     middleware(req, res)
-                    console.log(" middleware req res");
                 });
-                console.log("this midelware", this.middlewares);
                 const emmitted = this.emitter.emit(this._getRouteMask(req.pathname, req.method), req, res);
                 if (!emmitted) {
                     res.end();
