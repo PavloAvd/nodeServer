@@ -53,8 +53,8 @@ const getProduct = async (req, res) => {
         const url = req.params.endpoint
         const response = await axios.get(url, {
             params: {
-                "token": process.env.TOKEN
-
+                "token": process.env.TOKEN,
+                "product_id": req.params.product_id
             }
         })
         res.send(response.data);
