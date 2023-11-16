@@ -36,6 +36,7 @@ const sendTelegram = async (req, res) => {
         const text = ` 
         Телефон: ${data.phone}
         Ім'я: ${data.first_name}
+        Cпосіб оплати ${data.payment}
         Спосіб отримання: ${data.delivery}
         Адреса доставки: ${JSON.stringify(data.adress)}
         Товари: ${data.productsTelegram}
